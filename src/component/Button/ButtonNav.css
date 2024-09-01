@@ -1,0 +1,41 @@
+.ButtonNav {
+    /* 화면 아래 고정 */
+    position: fixed;
+    bottom: 0;
+
+    /* 요소 균등 분배 */
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+
+    /* 가운데정렬 */
+    align-items: center;
+
+    /* 위치 설정 */
+    width: 100%;
+    height: 68px;
+
+    background-color: white;
+    border-top: 1px solid #EAEAEA; /* 윗부분 경계선 추가 */
+
+}
+
+.ButtonNav > a {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: #AAAAAA;
+
+    /* 아이콘&글자 가운데정렬 */
+    align-items: center;
+    justify-content: center;
+}
+
+.ButtonNav > a.active {
+    color: #000000;
+}
+
+/* 메인 콘텐츠에 네비게이션 바 높이만큼의 패딩 추가 */
+.main-content {
+    padding-bottom: 68px; /* 네비게이션 바 높이만큼 패딩 추가 */
+}

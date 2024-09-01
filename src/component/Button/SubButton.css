@@ -1,0 +1,24 @@
+.SubButton {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0.5rem;
+    flex: 1; /* Flex 아이템이 가로를 모두 차지하도록 함 */
+    max-width: 33.333%; /* 한 줄에 3개씩 배치하기 위해 설정 */
+    box-sizing: border-box; /* padding과 border를 width에 포함시킵니다 */
+    min-width: 0; /* 콘텐츠가 줄어들 때 아이템이 줄어들 수 있도록 설정 */
+}
+
+.SubButton-icon {
+    width: 39px; /* 아이콘 크기 조정 */
+    height: 39px; /* 아이콘 크기 조정 */
+    border-radius: 50%; /* 원형으로 만들기 */
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px; /* 이미지와 텍스트 사이의 간격 */
+}
+
+.SubButton-text {
+    font-size: 13px; /* 텍스트 크기 조정 */
+}
