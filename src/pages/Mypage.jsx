@@ -5,7 +5,11 @@ import '../component/Button/ButtonNav.css'
 
 const Mypage = () => {
     return (
-        <div className="Mypage main-content">마이 페이지 입니다.
+        <div className="Mypage main-content">
+            <div>헬로우</div>
+            <div>최근 본 여행지</div>
+            <hr />
+            <div>설정</div>
             <ButtonNav />
         </div>
     )
