@@ -3,11 +3,18 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import ButtonNav from "../component/Button/ButtonNav";
 import './Search.css';
 import '../component/Button/ButtonNav.css';
-import { IoIosArrowBack } from "react-icons/io";  // 뒤로가기 아이콘
-import { IoSearchOutline } from "react-icons/io5";  // 검색 아이콘
+import { IoIosArrowBack } from "react-icons/io";
+import { IoSearchOutline } from "react-icons/io5";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ko } from 'date-fns/locale';
+
+import Info from "./Detail/Info"
+import Weather from "./Detail/Weather"
+import Exrate from "./Detail/Exrate"
+import Event from "./Detail/Event"
+import Disease from "./Detail/Disease"
+import Crime from "./Detail/Crime"
 
 // 더미 데이터 예시 (나라별 소제목, 이미지, 내용 포함)
 const travelData = {
@@ -128,9 +135,9 @@ const Search = () => {
     const query = useQuery();
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
-    const [selectedCategory, setSelectedCategory] = useState(null);  // 선택된 대분류
+    const [selectedCategory, setSelectedCategory] = useState(null); 
+    const [isTravelReadyPage, setIsTravelReadyPage] = useState(false); // 새로운 상태 추가
 
-    // 쿼리 파라미터 가져오기
     const countryQuery = query.get("query");
 
     const handleSearchChange = (e) => {
@@ -154,8 +161,45 @@ const Search = () => {
     };
 
     const handleSubCategoryClick = (subCategory) => {
-        navigate(`/search?query=${subCategory}`);  // 소분류 선택 시 쿼리로 이동
+        navigate(`/search?query=${subCategory}`);  
     };
+
+    const handlePrepareTravelClick = () => {
+        setIsTravelReadyPage(true); // 여행 준비하기 페이지로 전환
+    };
+
+    const [menuPage, setMenuPage] = useState(0);
+
+    if (isTravelReadyPage) {
+        return (
+            <div className="prepare-travel-page">
+                <div onClick={() => { navigate(-1) }}>
+                    <IoIosArrowBack className="ioiosarrowback" />
+                </div>
+                <div className="query-result-text">
+                        {countryQuery} 알아보기
+                </div>
+                <hr />
+                <div className="sububtton-bar">
+                    <div className={menuPage===0 ? 'active':''} onClick={()=>{setMenuPage(0);}}>여행 정보</div>
+                    <div className={menuPage===1 ? 'active':''} onClick={()=>{setMenuPage(1);}}>날씨</div>
+                    <div className={menuPage===2 ? 'active':''} onClick={()=>{setMenuPage(2);}}>환율</div>
+                    <div className={menuPage===3 ? 'active':''} onClick={()=>{setMenuPage(3);}}>행사</div>
+                    <div className={menuPage===4 ? 'active':''} onClick={()=>{setMenuPage(4);}}>질병</div>
+                    <div className={menuPage===5 ? 'active':''} onClick={()=>{setMenuPage(5);}}>범죄</div>
+                </div>
+                {menuPage===0 ? <Info />:
+                menuPage===1 ? <Weather /> :
+                menuPage===2 ? <Exrate /> :
+                menuPage===3 ? <Event /> :
+                menuPage===4 ? <Disease /> :
+                <Crime />
+                }
+                {/* <button onClick={() => setIsTravelReadyPage(false)}>뒤로 가기</button> */}
+                <ButtonNav />
+            </div>
+        );
+    }
 
     return (
         <div className={`Search main-content2 ${countryQuery ? "search-query-exist" : "search-query-empty"}`}>
@@ -204,10 +248,8 @@ const Search = () => {
                 </div>
             )}
 
-            {/* 대분류 및 소분류 화면 분할 */}
             {!countryQuery && (
                 <div className="category-container">
-                    {/* 왼쪽 대분류 */}
                     <div className="category-list">
                         {Object.keys(travelData).map((category) => (
                             <div 
@@ -220,11 +262,9 @@ const Search = () => {
                         ))}
                     </div>
 
-                    {/* 오른쪽 소분류 */}
                     <div className="subcategory-list">
                         {selectedCategory && (
                             <div>
-                                {/* <h3>{selectedCategory}</h3> */}
                                 {travelData[selectedCategory].map((sub) => (
                                     <div 
                                         key={sub.소분류}
@@ -242,7 +282,6 @@ const Search = () => {
 
             {countryQuery && (
                 <div>
-                    {/* 선택된 나라에 대한 세부 정보 표시 */}
                     {Object.values(travelData).flat().filter(item => item.소분류 === countryQuery).map(item => (
                         <div key={item.소분류}>
                             <img src={item.이미지} alt={item.소분류} className="country-image" />
@@ -250,7 +289,7 @@ const Search = () => {
                             <p className="sub-content">{item.내용}</p>
                             <div 
                                 className="blue-btn" 
-                                onClick={() => navigate('/여기에다가이동하는부분넣기')}  // 버튼 클릭 시 /check로 이동
+                                onClick={handlePrepareTravelClick}  // 여행 준비하기 버튼 클릭 시 상태 변경
                             >
                                 여행 준비하기
                             </div>
