@@ -1,0 +1,29 @@
+.date-designate {
+    outline: none;
+}
+
+.recom-menu {
+    
+}
+
+.recom-items {
+    overflow: auto; /* 스크롤바 추가 */
+}
+
+/* 마우스 올리면 색 변화 */
+.item:hover{
+    color: #fff;
+    background-color: lightgreen;
+}
+
+.sex-select {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5px;
+}
+
+.purpose-select {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5px;
+}
