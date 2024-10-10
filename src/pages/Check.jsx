@@ -16,7 +16,15 @@ const Check = () => {
     const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태 관리
     const [filteredItems, setFilteredItems] = useState([]); // 필터된 추천 항목
     const [isListVisible, setIsListVisible] = useState(false); // 추천 리스트 보임 여부 관리
-    
+    const [selectedContainers, setSelectedContainers] = useState({ container1: null, container2: null });
+
+    const handleClick = (container, value) => {
+        setSelectedContainers(prev => ({
+            ...prev,
+            [container]: prev[container] === value ? null : value // 선택된 값이 같으면 해제, 다르면 선택
+        }));
+    };
+
     const items = ['미국', '베트남', '태국', '아프리카', '중국', '일본']; // 추천 리스트
 
     // 검색어가 변경될 때마다 필터링
@@ -70,18 +78,21 @@ const Check = () => {
 
     const [selectactivity, setSelectActivity] = useState(false); // 새로운 상태 추가
     const handleActiviryPageClick = () => {
-        setSelectActivity(true); // 액티비티 & 목록 페이지로 전환
-    }
-    
+        if (selectedContainers.container1 && selectedContainers.container2) {
+            setSelectActivity(true); // 액티비티 & 목록 페이지로 전환
+        }
+    };
+
     if (selectactivity) {
         return (
             <div>
                 <div onClick={() => { navigate(-1) }}>
-                        <IoIosArrowBack className="ioiosarrowback" />
+                    <IoIosArrowBack className="ioiosarrowback" />
                 </div>
                 <div>선택하기이이이이이ㅣ</div>
+                <ButtonNav />
             </div>
-        )
+        );
     }
 
     return (
@@ -90,9 +101,9 @@ const Check = () => {
             <div>목적지</div>
             <div>
                 <IoSearchOutline />
-                <input 
-                    type="text" 
-                    id="name" 
+                <input
+                    type="text"
+                    id="name"
                     placeholder="어디로 가고 싶으신가요?"
                     value={searchTerm} // 입력 필드의 값을 상태로 설정
                     onChange={handleInputChange} // 입력 값이 변경될 때 호출
@@ -103,9 +114,9 @@ const Check = () => {
                     <div className="recom-menu">
                         <div className="recom-items">
                             {filteredItems.map((item, index) => (
-                                <div 
-                                    key={index} 
-                                    className="item" 
+                                <div
+                                    key={index}
+                                    className="item"
                                     onClick={() => handleItemClick(item)} // 항목 클릭 시 호출
                                 >
                                     {item}
@@ -137,13 +148,33 @@ const Check = () => {
                 </div>
             )}
 
-            <div className="sex-select">
-                <div>여성</div>
-                <div>남성</div>
+            <div className="container">
+                <div 
+                    className={`box non-click ${selectedContainers.container1 === 'female' ? "click" : ""}`} 
+                    onClick={() => handleClick('container1', 'female')}
+                >
+                    여성
+                </div>
+                <div 
+                    className={`box non-click ${selectedContainers.container1 === 'male' ? "click" : ""}`} 
+                    onClick={() => handleClick('container1', 'male')}
+                >
+                    남성
+                </div>
             </div>
-            <div className="purpose-select">
-                <div>업무</div>
-                <div>휴가</div>
+            <div className="container2">
+                <div 
+                    className={`box non-click ${selectedContainers.container2 === 'business' ? "click" : ""}`} 
+                    onClick={() => handleClick('container2', 'business')}
+                >
+                    업무
+                </div>
+                <div 
+                    className={`box non-click ${selectedContainers.container2 === 'vacation' ? "click" : ""}`} 
+                    onClick={() => handleClick('container2', 'vacation')}
+                >
+                    휴가
+                </div>
             </div>
             <div onClick={handleActiviryPageClick}>액티비티 & 목록 선택하기</div>
             <ButtonNav />

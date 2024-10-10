@@ -2,10 +2,6 @@
     outline: none;
 }
 
-.recom-menu {
-    
-}
-
 .recom-items {
     overflow: auto; /* 스크롤바 추가 */
 }
@@ -26,4 +22,8 @@
     display: flex;
     justify-content: space-evenly;
     gap: 5px;
+}
+
+.click {
+    background-color: red;
 }
