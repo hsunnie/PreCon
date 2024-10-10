@@ -87,9 +87,11 @@ const Check = () => {
         return (
             <div>
                 <div onClick={() => { navigate(-1) }}>
-                    <IoIosArrowBack className="ioiosarrowback" />
+                    <IoIosArrowBack className="ioiosarrowback" />액티비티 & 목록 선택하기
                 </div>
-                <div>선택하기이이이이이ㅣ</div>
+                <div>숙소</div>
+                <div>교통 수단</div>
+                <div>액티비티 / 아이템</div>
                 <ButtonNav />
             </div>
         );
