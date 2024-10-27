@@ -27,3 +27,77 @@
 .click {
     background-color: red;
 }
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.btn-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.activityselectbtn {
+    background-color: #1D77DF;
+    border-radius: 3px;
+    margin-top: 60px;
+    height: 50px;
+    width: 240px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    display: flex;
+    color: #ffffff;
+}
+
+.checkbar1 {
+    display: flex;
+    background: #1D77DF;
+    color: #FFFFFF;
+    height: 60px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.checkbar {
+    display: flex;
+    background: #1D77DF;
+    color: #FFFFFF;
+    align-items: center;
+}
+
+.check-title {
+    height: 60px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    display: flex;
+}
+
+.check-add {
+    height: 60px;
+    background-color: #1D77DF;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #FFFFFF;
+    font-weight: bolder;
+    padding-right: 40px;
+}
+
+.checkbar-container {
+    display: flex;
+}
