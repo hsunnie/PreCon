@@ -33,7 +33,7 @@
     padding: 13px 10px;
     display: flex;
     align-items: center;
-    width: calc(100% - 30px);
+    width: calc(100% - 22px);
     margin-bottom: 3px;
 }
 .Search .search-place {
@@ -41,6 +41,12 @@
     padding: 10px;
     font-size: 16px;
     
+}
+
+.Search .date {
+    /* width: calc(100% - 152px); */
+    padding: 10px;
+    font-size: 16px;
 }
 
 .query-result-text {
@@ -80,6 +86,13 @@
     width: 100%; /* input 요소가 차지할 수 있는 영역에 맞추어 크기를 조정 */
 }
 
+.cat-list-top {
+    padding: 20px;
+}
+
+.cat-top-hr {
+    border: 1px solid #000000;
+}
 
 /* 화면 2분할 */
 .category-container {
@@ -97,7 +110,7 @@
 
 .category {
     cursor: pointer;
-    padding: 10px;
+    padding: 20px;
     font-size: 13px;
     font-weight: bold;
     border-bottom: 1px solid #ddd;
@@ -127,6 +140,10 @@
 /* Date picker 스타일 */
 .date-picker-container {
     margin-top: 20px;
+}
+
+.date-picker-container .date {
+    padding: 13px 10px;
 }
 
 /* 검색 결과 섹션 */

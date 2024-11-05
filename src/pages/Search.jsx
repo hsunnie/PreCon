@@ -250,7 +250,7 @@ const Search = () => {
 
             {!countryQuery && (
                 <div className="category-container">
-                    <div className="category-list">
+                    <div className="category-list"><div className="cat-list-top">여행지 목록</div><hr className="cat-top-hr"/>
                         {Object.keys(travelData).map((category) => (
                             <div 
                                 key={category} 
