@@ -6,6 +6,7 @@ import '../component/Button/ButtonNav.css';
 import { IoIosArrowBack } from "react-icons/io";
 import { IoSearchOutline } from "react-icons/io5";
 import DatePicker from "react-datepicker";
+import { IoIosArrowDown } from "react-icons/io";
 import "react-datepicker/dist/react-datepicker.css";
 import { ko } from 'date-fns/locale';
 
@@ -174,7 +175,7 @@ const Search = () => {
         return (
             <div className="prepare-travel-page">
                 <div onClick={() => { navigate(-1) }}>
-                    <IoIosArrowBack className="ioiosarrowback" />
+                    <div className="ioiosarrowback"><IoIosArrowBack /></div>
                 </div>
                 <div className="query-result-text">
                         {countryQuery} 알아보기
@@ -205,7 +206,7 @@ const Search = () => {
         <div className={`Search main-content2 ${countryQuery ? "search-query-exist" : "search-query-empty"}`}>
             <div className="search-bar2">
                 <div onClick={() => { navigate(-1) }}>
-                    <IoIosArrowBack className="ioiosarrowback" />
+                    <div className="ioiosarrowback"><IoIosArrowBack /></div>
                 </div>
 
                 {!countryQuery ? (
@@ -229,8 +230,8 @@ const Search = () => {
             </div>
 
             {!countryQuery && (
-                <div className="date-picker-container">
-                    <DatePicker
+                    <div className="date-picker-container">
+                        <DatePicker
                         className="date"
                         selected={startDate}
                         onChange={(dates) => {
@@ -244,8 +245,9 @@ const Search = () => {
                         dateFormat="yy.MM.dd"
                         placeholderText="날짜 범위를 선택하세요"
                         locale={ko}
-                    />
-                </div>
+                        />
+                        <IoIosArrowDown />
+                    </div>
             )}
 
             {!countryQuery && (

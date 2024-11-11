@@ -108,7 +108,7 @@ const Check = () => {
         return (
             <div className="checkbar-container2">
                 <div className="checkbar">
-                    <IoIosArrowBack className="ioiosarrowback" />
+                    <div className="ioiosarrowback"><IoIosArrowBack /></div>
                     <div className="check-title">체크하기</div>
                 </div>
                 <div>
@@ -201,7 +201,7 @@ const Check = () => {
         return (
             <div>
                 <div className="checkbar" onClick={() => { navigate(-1) }}>
-                    <IoIosArrowBack className="ioiosarrowback" />
+                    <div className="ioiosarrowback"><IoIosArrowBack /></div>
                     <div className="check-title">액티비티 & 목록 선택하기</div>
                 </div>
                 <div>숙소</div>
