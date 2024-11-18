@@ -1,18 +1,21 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // 페이지 이동을 위한 useNavigate 추가
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext"; // useAuth 훅 임포트
 import ButtonNav from "../component/Button/ButtonNav";
-import '../component/Button/ButtonNav.css';
 import './Mypage.css';
 import { PiHandWavingBold } from "react-icons/pi";
 
 const Mypage = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const navigate = useNavigate(); // 페이지 이동을 위한 navigate 생성
+    const { isLoggedIn, setIsLoggedIn } = useAuth();
+    const navigate = useNavigate();
 
-    const handleLogout = () => setIsLoggedIn(false);
+    const handleLogout = () => {
+        setIsLoggedIn(false); // 로그아웃 시 isLoggedIn을 false로 설정
+        navigate("/login"); // 로그아웃 후 로그인 페이지로 이동
+    };
 
     const handleLoginNavigate = () => {
-        navigate("/login"); // 로그인 페이지로 이동
+        navigate("/login");
     };
 
     return (
@@ -32,7 +35,7 @@ const Mypage = () => {
                 <div className="firstbtn">
                     <PiHandWavingBold />
                     <div>헬로우</div>
-                    <button onClick={handleLoginNavigate}>로그인</button> {/* 클릭 시 로그인 페이지로 이동 */}
+                    <button onClick={handleLoginNavigate}>로그인</button>
                 </div>
             )}
             <ButtonNav />

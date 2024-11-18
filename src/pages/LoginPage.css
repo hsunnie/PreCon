@@ -1,0 +1,10 @@
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ioiosarrowback {
+    height: 16px;
+    width: 8px;
+}
