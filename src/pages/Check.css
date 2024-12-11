@@ -96,8 +96,13 @@
     color: #FFFFFF;
     font-weight: bolder;
     padding-right: 40px;
+    cursor: pointer;
 }
 
 .checkbar-container {
     display: flex;
+}
+
+.fst-container-box {
+    margin: 20px;
 }

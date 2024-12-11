@@ -7,6 +7,7 @@ import { PiHandWavingBold } from "react-icons/pi";
 
 const Mypage = () => {
     const { isLoggedIn, setIsLoggedIn } = useAuth();
+    const { nickname } = useAuth();
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -24,7 +25,7 @@ const Mypage = () => {
                 <div>
                     <div className="firstbtn">
                         <PiHandWavingBold />
-                        <div>안녕하세요!</div>
+                        <div>안녕하세요, {nickname}님!</div>
                         <button onClick={handleLogout}>로그아웃</button>
                     </div>
                     <div>최근 본 여행지</div>
@@ -34,8 +35,8 @@ const Mypage = () => {
             ) : (
                 <div className="firstbtn">
                     <PiHandWavingBold />
-                    <div>헬로우</div>
-                    <button onClick={handleLoginNavigate}>로그인</button>
+                    <div className="hello">헬로우!</div>
+                    <button className="loginbtn" onClick={handleLoginNavigate}>로그인</button>
                 </div>
             )}
             <ButtonNav />

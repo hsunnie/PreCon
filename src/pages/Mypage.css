@@ -1,3 +1,19 @@
 .firstbtn {
     display: flex;
+    margin: 50px 30px;
+    gap: 15px;
+    align-items: center;
+}
+
+.hello {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.loginbtn {
+    background-color: #1D77DF;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
 }

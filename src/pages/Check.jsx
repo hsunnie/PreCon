@@ -111,7 +111,7 @@ const Check = () => {
                     <div className="ioiosarrowback"><IoIosArrowBack /></div>
                     <div className="check-title">체크하기</div>
                 </div>
-                <div>
+                <div className="fst-container-box">
                     <div>목적지</div>
                     <div>
                         <IoSearchOutline />

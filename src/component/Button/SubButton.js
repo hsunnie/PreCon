@@ -6,7 +6,7 @@ const SubButton = ({ imageUrl, text, number, handleClick }) => {
     <div className="SubButton" onClick={handleClick}>
       <div className="SubButton-icon" style={{ backgroundImage: `url(${imageUrl})` }}></div>
       <div className="SubButton-text">
-        {number}. {text}
+        {number ? `${number}. ${text}` : text}
       </div>
     </div>
   );

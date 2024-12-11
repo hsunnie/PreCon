@@ -7,6 +7,7 @@ import Check from '../pages/Check';
 import Mypage from '../pages/Mypage';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
+import SignupSuccessPage from "../pages/SignupSuccessPage";
 
 import { AuthProvider } from '../contexts/AuthContext';
 
@@ -20,6 +21,7 @@ const AllRoutes = () => {
                 <Route path="/mypage" element={<Mypage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignupPage />} />
+                <Route path="/signup-success" element={<SignupSuccessPage />} />
             </Routes>
         </AuthProvider>
     );

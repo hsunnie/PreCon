@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import ButtonNav from "../component/Button/ButtonNav";
+import SubButton from "../component/Button/SubButton";
 import './Search.css';
 import '../component/Button/ButtonNav.css';
 import { IoIosArrowBack } from "react-icons/io";
@@ -174,13 +175,15 @@ const Search = () => {
     if (isTravelReadyPage) {
         return (
             <div className="prepare-travel-page">
-                <div onClick={() => { navigate(-1) }}>
-                    <div className="ioiosarrowback"><IoIosArrowBack /></div>
+                <div className="detail-bar">
+                    <div onClick={() => { navigate(-1) }}>
+                        <div className="ioiosarrowback"><IoIosArrowBack /></div>
+                    </div>
+                    <div className="query-result-text">
+                            {countryQuery} 알아보기
+                    </div>
                 </div>
-                <div className="query-result-text">
-                        {countryQuery} 알아보기
-                </div>
-                <hr />
+                <hr classname="fst-hr" />
                 <div className="sububtton-bar">
                     <div className={menuPage===0 ? 'active':''} onClick={()=>{setMenuPage(0);}}>여행 정보</div>
                     <div className={menuPage===1 ? 'active':''} onClick={()=>{setMenuPage(1);}}>날씨</div>
@@ -249,6 +252,7 @@ const Search = () => {
                         <IoIosArrowDown />
                     </div>
             )}
+            <div className="background-clr"/>
 
             {!countryQuery && (
                 <div className="category-container">
@@ -268,12 +272,12 @@ const Search = () => {
                         {selectedCategory && (
                             <div>
                                 {travelData[selectedCategory].map((sub) => (
-                                    <div 
+                                    <div className="sub-cat-box">
+                                    <SubButton 
                                         key={sub.소분류}
-                                        className="subcategory"
-                                        onClick={() => handleSubCategoryClick(sub.소분류)}
-                                    >
-                                        {sub.소분류}
+                                        imageUrl={sub.이미지}
+                                        text={sub.소분류}
+                                        handleClick={()=> handleSubCategoryClick(sub.소분류)}/>
                                     </div>
                                 ))}
                             </div>
