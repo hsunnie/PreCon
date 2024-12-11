@@ -1,0 +1,18 @@
+.mon-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.mon {
+    font-weight: bold;
+}
+
+.nig {
+    color: #3154FF;
+}
+
+.day {
+    color: #F23733;
+}

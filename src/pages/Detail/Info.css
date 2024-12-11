@@ -2,11 +2,27 @@
     padding: 0 18px;
 }
 
-.info-box {
-    margin: 20px 11px;
-}
-
 .tit {
     font-weight: bold;   
     margin-bottom: 7px; 
+}
+
+
+.info-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.info-box {
+    margin: 0;
+    background-color: #F5F5F5;
+    padding: 22px 11px;
+    gap: 6px;
+    border-radius: 3px;
+}
+
+div.info-container > div.info-box {
+    width: 48%; /* 한 줄에 두 개씩 표시 */
 }
