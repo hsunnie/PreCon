@@ -1,8 +1,23 @@
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    gap: 17px; /* 행 간 간격 */
+    padding: 20px 18px;
+}
+
+.row-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* 열 간 간격 */
+}
+
 .mon-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    gap: 10px; /* 내부 요소 간 간격 */
+    flex: 1; /* 균등한 크기 */
+    min-width: 0; /* 줄 바꿈 방지 */
 }
 
 .mon {

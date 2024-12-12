@@ -18,7 +18,7 @@ const Weather = () => {
             jan_nig:"1",
             jan_day:"2",
             feb_nig:"3",
-            fev_day:"4",
+            feb_day:"4",
             mar_nig:"5",
             mar_day:"6",
             apr_nig:"7",
@@ -45,7 +45,7 @@ const Weather = () => {
             jan_nig:"11",
             jan_day:"22",
             feb_nig:"33",
-            fev_day:"44",
+            feb_day:"44",
             mar_nig:"55",
             mar_day:"66",
             apr_nig:"77",
@@ -73,70 +73,86 @@ const Weather = () => {
     const selectedWhether = weather.find(whe => whe.country === countryQuery);
 
     return (
-        <div>
-            <h2>{countryQuery ? `${countryQuery} 월별 평균 기온` : '월별 평균 기온'}</h2>
+        <div className='weather-container'>
+            <h2>월별 평균 기온</h2>
             
-            <div className='mon-container'>
-                <div className='mon'>1월</div>
-                <div className='nig'>{selectedWhether ? selectedWhether.jan_nig : '데이터 없음'}</div>
-                <div className='day'>{selectedWhether ? selectedWhether.jan_day : '데이터 없음'}</div>
+            <div className='row-container'>
+                <div className='mon-container'>
+                    <div className='mon'>1월</div>
+                    <div className='nig'>최저 {selectedWhether ? selectedWhether.jan_nig : ''}°C</div>
+                    <div className='day'>최고 {selectedWhether ? selectedWhether.jan_day : ''}°C</div>
+                </div>
+                <div className='mon-container'>
+                    <div className='mon'>2월</div>
+                    <div className='nig'>최저 {selectedWhether ? selectedWhether.feb_nig : ''}°C</div>
+                    <div className='day'>최고 {selectedWhether ? selectedWhether.feb_day : ''}°C</div>
+                </div>
             </div>
-            <div className='mon-container'>
-                <div className='mon'>2월</div>
-                <div className='nig'>{selectedWhether ? selectedWhether.feb_nig : '데이터 없음'}</div>
-                <div className='day'>{selectedWhether ? selectedWhether.feb_day : '데이터 없음'}</div>
+
+            <div className='row-container'>
+                <div className='mon-container'>
+                    <div className='mon'>3월</div>
+                    <div className='nig'>최저 {selectedWhether ? selectedWhether.mar_nig : ''}°C</div>
+                    <div className='day'>최고 {selectedWhether ? selectedWhether.mar_day : ''}°C</div>
+                </div>
+                <div className='mon-container'>
+                    <div className='mon'>4월</div>
+                    <div className='nig'>최저 {selectedWhether ? selectedWhether.apr_nig : ''}°C</div>
+                    <div className='day'>최고 {selectedWhether ? selectedWhether.apr_day : ''}°C</div>
+                </div>
             </div>
-            <div className='mon-container'>
-                <div className='mon'>3월</div>
-                <div className='nig'>{selectedWhether ? selectedWhether.mar_nig : '데이터 없음'}</div>
-                <div className='day'>{selectedWhether ? selectedWhether.mar_day : '데이터 없음'}</div>
+
+            <div className='row-container'>
+                <div className='mon-container'>
+                    <div className='mon'>5월</div>
+                    <div className='nig'>최저 {selectedWhether ? selectedWhether.may_nig : ''}°C</div>
+                    <div className='day'>최고 {selectedWhether ? selectedWhether.may_day : ''}°C</div>
+                </div>
+                <div className='mon-container'>
+                    <div className='mon'>6월</div>
+                    <div className='nig'>최저 {selectedWhether ? selectedWhether.jun_nig : ''}°C</div>
+                    <div className='day'>최고 {selectedWhether ? selectedWhether.jun_day : ''}°C</div>
+                </div>
             </div>
-            <div className='mon-container'>
-                <div className='mon'>4월</div>
-                <div className='nig'>{selectedWhether ? selectedWhether.apr_nig : '데이터 없음'}</div>
-                <div className='day'>{selectedWhether ? selectedWhether.apr_day : '데이터 없음'}</div>
-            </div>
-            <div className='mon-container'>
-                <div className='mon'>5월</div>
-                <div className='nig'>{selectedWhether ? selectedWhether.may_nig : '데이터 없음'}</div>
-                <div className='day'>{selectedWhether ? selectedWhether.may_day : '데이터 없음'}</div>
-            </div>
-            <div className='mon-container'>
-                <div className='mon'>6월</div>
-                <div className='nig'>{selectedWhether ? selectedWhether.jun_nig : '데이터 없음'}</div>
-                <div className='day'>{selectedWhether ? selectedWhether.jun_day : '데이터 없음'}</div>
-            </div>
-            <div className='mon-container'>
-                <div className='mon'>7월</div>
-                <div className='nig'>{selectedWhether ? selectedWhether.jul_nig : '데이터 없음'}</div>
-                <div className='day'>{selectedWhether ? selectedWhether.jul_day : '데이터 없음'}</div>
-            </div>
-            <div className='mon-container'>
-                <div className='mon'>8월</div>
-                <div className='nig'>{selectedWhether ? selectedWhether.aug_nig : '데이터 없음'}</div>
-                <div className='day'>{selectedWhether ? selectedWhether.aug_day : '데이터 없음'}</div>
-            </div>
-            <div className='mon-container'>
-                <div className='mon'>9월</div>
-                <div className='nig'>{selectedWhether ? selectedWhether.sep_nig : '데이터 없음'}</div>
-                <div className='day'>{selectedWhether ? selectedWhether.sep_day : '데이터 없음'}</div>
-            </div>
-            <div className='mon-container'>
-                <div className='mon'>10월</div>
-                <div className='nig'>{selectedWhether ? selectedWhether.oct_nig : '데이터 없음'}</div>
-                <div className='day'>{selectedWhether ? selectedWhether.oct_day : '데이터 없음'}</div>
-            </div>
-            <div className='mon-container'>
-                <div className='mon'>11월</div>
-                <div className='nig'>{selectedWhether ? selectedWhether.nov_nig : '데이터 없음'}</div>
-                <div className='day'>{selectedWhether ? selectedWhether.nov_day : '데이터 없음'}</div>
-            </div>
-            <div className='mon-container'>
-                <div className='mon'>12월</div>
-                <div className='nig'>{selectedWhether ? selectedWhether.dec_nig : '데이터 없음'}</div>
-                <div className='day'>{selectedWhether ? selectedWhether.dec_day : '데이터 없음'}</div>
+
+            <div className='row-container'>
+                <div className='mon-container'>
+                    <div className='mon'>7월</div>
+                    <div className='nig'>최저 {selectedWhether ? selectedWhether.jul_nig : ''}°C</div>
+                    <div className='day'>최고 {selectedWhether ? selectedWhether.jul_day : ''}°C</div>
+                </div>
+                <div className='mon-container'>
+                    <div className='mon'>8월</div>
+                    <div className='nig'>최저 {selectedWhether ? selectedWhether.aug_nig : ''}°C</div>
+                    <div className='day'>최고 {selectedWhether ? selectedWhether.aug_day : ''}°C</div>
+                </div>
             </div>
             
+            <div className='row-container'>
+                <div className='mon-container'>
+                    <div className='mon'>9월</div>
+                    <div className='nig'>최저 {selectedWhether ? selectedWhether.sep_nig : ''}°C</div>
+                    <div className='day'>최고 {selectedWhether ? selectedWhether.sep_day : ''}°C</div>
+                </div>
+                <div className='mon-container'>
+                    <div className='mon'>10월</div>
+                    <div className='nig'>최저 {selectedWhether ? selectedWhether.oct_nig : ''}°C</div>
+                    <div className='day'>최고 {selectedWhether ? selectedWhether.oct_day : ''}°C</div>
+                </div>
+            </div>
+            
+            <div className='row-container'>
+                <div className='mon-container'>
+                    <div className='mon'>11월</div>
+                    <div className='nig'>최저 {selectedWhether ? selectedWhether.nov_nig : ''}°C</div>
+                    <div className='day'>최고 {selectedWhether ? selectedWhether.nov_day : ''}°C</div>
+                </div>
+                <div className='mon-container'>
+                    <div className='mon'>12월</div>
+                    <div className='nig'>최저 {selectedWhether ? selectedWhether.dec_nig : ''}°C</div>
+                    <div className='day'>최고 {selectedWhether ? selectedWhether.dec_day : ''}°C</div>
+                </div>
+            </div>
         </div>
     );
 };
